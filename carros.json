@@ -1,0 +1,9 @@
+{
+  "1": ["Toyota", "Camry", 2022, "Prata", 80.0, 8, "ABC-1234"],
+  "2": ["Honda", "Civic", 2021, "Azul", 95.0, 2, "XYZ-5678"],
+  "3": ["Ford", "Escape", 2023, "Preto", 90.0, 5, "KLM-9876"],
+  "4": ["Chevrolet", "Trax", 2022, "Branco", 85.0, 9, "QRS-4321"],
+  "5": ["Nissan", "Versa", 2021, "Vermelho", 70.0, 10, "DEF-6543"],
+  "6": ["Hyundai", "Accent", 2022, "Prata", 65.0, 3, "GHI-7890"],
+  "7": ["Renault", "Kwid", 2017, "Prata", 50.0, 0, "MNO-2109"]
+}
