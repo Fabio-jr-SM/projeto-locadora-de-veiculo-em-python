@@ -1,7 +1,8 @@
-import json   '''importando a biblioteca JSON pois Ele usa uma sintaxe leve e minimalista, tornando-o rápido de ser processado
+import json   
+'''importando a biblioteca JSON pois Ele usa uma sintaxe leve e minimalista, tornando-o rápido de ser processado
  esta biblioteca nos fornece uma maneira fácil de obter informações do sistema operacional com apenas uma linha de código.'''
 import os
- '''utilizado para ter uma forma rapida e simples de acessar datas dentre outros'''
+'''utilizado para ter uma forma rapida e simples de acessar datas dentre outros'''
 import datetime
 
 
@@ -32,7 +33,7 @@ def exibir_tabela_carros(carros):
 
 
 def carregar_arquivo_carros():
-    ''''''Função utilizada para abrir o arquivo Json no codigo e utilizar no corpo do codigo''''''
+    '''Função utilizada para abrir o arquivo Json no codigo e utilizar no corpo do codigo'''
 
     with open('carros.json', 'r') as f:
         texto = f.read()
@@ -47,7 +48,8 @@ def carregar_arquivo_pessoas_cadastradas():
     with open('pessoas_cadastradas.json', 'r') as f:
         texto = f.read()
         pessoas_cadastradas = json.loads(texto)
-    return pessoas_cadastradas  '''pessoas_cadastradas é uma lista dentro do arquivo json e
+    return pessoas_cadastradas  
+'''pessoas_cadastradas é uma lista dentro do arquivo json e
     sera usada para adicionar pessoa ao nosso "banco de dados"'''
 
 
