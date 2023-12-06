@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Lab Robótica/Documents/Locadora de Veiculos - integração de banco de dodos com python/locadora.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="150"/><column_width id="3" width="2738"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:maincarros"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">CREATE table carros(
+	id_carro INTEGER unique PRIMARY KEY AUTOINCREMENT,
+	marca TEXT,
+	modelo TEXT,
+	cor TEXT,
+	quantidade INTEGER,
+	ano INTEGER,
+	preco_dia INTEGER
+);
+
+CREATE table pessoa(
+	id_pessoa INTEGER unique PRIMARY KEY AUTOINCREMENT,
+	nome TEXT,
+	idade INTEGER,
+	cpf INTEGER,
+	cnh INTEGER
+);
+
+CREATE table aluga(
+	id_aluguel INTEGER unique PRIMARY KEY AUTOINCREMENT,
+	data_alugada TEXT,
+	data_devoluçao TEXT,
+	preco_aluguel INTEGER,
+	id_carro INTEGER,
+	id_pessoa INTEGER,
+	FOREIGN key(id_pessoa) REFERENCES pessoa(id_pessoa),
+	FOREIGN key(id_carro) REFERENCES carros(id_carro)
+);
+
+insert into carros (marca, modelo, ano, cor, preco_dia, quantidade)
+	VALUES(&quot;Toyota&quot;, &quot;Camry&quot;, 2022, &quot;Prata&quot;, 80.0, 2),
+		(&quot;Honda&quot;, &quot;Civic&quot;, 2021, &quot;Azul&quot;, 95.0, 1),
+		(&quot;Ford&quot;, &quot;Escape&quot;, 2023, &quot;Preto&quot;, 90.0, 5),
+		(&quot;Chevrolet&quot;, &quot;Trax&quot;, 2022, &quot;Branco&quot;, 85.0, 7),
+		(&quot;Nissan&quot;, &quot;Versa&quot;, 2021, &quot;Vermelho&quot;, 70.0,  4),
+		(&quot;Hyundai&quot;, &quot;Accent&quot;, 2022, &quot;Prata&quot;, 65.0,  7),
+		(&quot;Renault&quot;, &quot;Kwid&quot;, 2017, &quot;Prata&quot;, 50.0,  2),
+		(&quot;Volkswagen&quot;, &quot;Golf&quot;, 2023, &quot;Azul&quot;, 88.0, 3),
+		(&quot;Mazda&quot;, &quot;Mazda3&quot;, 2022, &quot;Cinza&quot;, 75.0,  3),
+		(&quot;Kia&quot;, &quot;Forte&quot;, 2023, &quot;Vermelho&quot;, 82.0,  5);
+		
+select *from carros;
+
+insert into pessoa (nome, idade, cpf, cnh)
+	VALUES(&quot;Maria&quot;, 22 , 01802625900 , 11557786927),
+		(&quot;João&quot;, 30, 12345678901, 9876543210),
+		(&quot;Ana&quot;, 25, 98765432109, 9988776655),
+		(&quot;Carlos&quot;, 28, 11223344556, 5544332211),
+		(&quot;Larissa&quot;, 35, 87654321098, 1122334455),
+		(&quot;Pedro&quot;, 40, 55544433322, 9998887776),
+		(&quot;Isabel&quot;, 27, 99988877766, 2233445566),
+		(&quot;Rafael&quot;, 33, 65432109876, 777888999),
+		(&quot;Camila&quot;, 29, 32109876543, 4445556667),
+		(&quot;Gabriel&quot;, 22 , 08792569348 , 08970059011);
+
+SELECT * from pessoa;
+
+INSERT into aluga(data_alugada, data_devoluçao, preco_aluguel, id_carro, id_pessoa)
+	VALUES(&quot;05/12/2023&quot;, &quot;15/12/2023&quot;, 800.0, 1 , 1),
+			(&quot;10/12/2023&quot;, &quot;20/12/2023&quot;, 950.0, 2, 2),
+			(&quot;08/12/2023&quot;, &quot;18/12/2023&quot;, 900.0, 3, 3),
+			(&quot;12/12/2023&quot;, &quot;22/12/2023&quot;, 850.0, 4, 4),
+			(&quot;07/12/2023&quot;, &quot;17/12/2023&quot;, 700.0, 5, 5),
+			(&quot;06/12/2023&quot;, &quot;16/12/2023&quot;, 650.0, 6, 6),
+			(&quot;09/12/2023&quot;, &quot;19/12/2023&quot;, 500.0, 7, 7),
+			(&quot;11/12/2023&quot;, &quot;21/12/2023&quot;, 880.0, 8, 8),
+			(&quot;13/12/2023&quot;, &quot;23/12/2023&quot;, 750.0, 9, 9),
+			(&quot;14/12/2023&quot;, &quot;24/12/2023&quot;, 820.0, 10, 10);
+
+SELECT *from aluga;
+
+
+--Relatório da Locação do carro
+select pessoa.nome, pessoa.cpf, pessoa.cnh, carros.modelo, aluga.data_alugada, aluga.data_devoluçao, aluga.preco_aluguel
+
+FROM  aluga 
+JOIN pessoa on aluga.id_pessoa = pessoa.id_pessoa
+JOIN carros on aluga.id_carro = carros.id_carro;</sql><current_tab id="0"/></tab_sql></sqlb_project>
